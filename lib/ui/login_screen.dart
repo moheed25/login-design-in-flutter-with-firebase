@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:login/ui/signupscreen.dart';
 import 'package:login/widgets/rounded_button.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -52,6 +53,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         return null;
                       },
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     TextFormField(
                       keyboardType: TextInputType.phone,
                       controller: passwordController,
@@ -76,7 +80,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 title: 'Login',
                 onTap: () {
                   if (_formKey.currentState!.validate()) {}
-                })
+                }),
+             SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                 Text("Don't have an account?"),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpScreen()));
+                    },
+                    child: Text('Sign up'))
+              ],
+            ),
           ],
         ),
       ),
